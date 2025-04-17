@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilmController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.controllers</a> &gt; <span class="el_source">FilmController.java</span></div><h1>FilmController.java</h1><pre class="source lang-java linenums">package com.example.demo.controllers;
+
+import com.example.demo.entities.*;
+import com.example.demo.services.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RequiredArgsConstructor
+@RestController
+public class FilmController {
+    @Autowired
+    private FilmService filmService;
+    //private FilmRepository filmRepository;
+
+//    @GetMapping(&quot;/films&quot;)
+//    public List&lt;Film&gt; getAllFilms() {
+//        return filmRepository.findAll();
+//    }
+//
+//    @GetMapping(&quot;/films/{id}&quot;)
+//    public Film findFilm(@PathVariable Short id) {
+//        return filmRepository.findById(id).get();
+//    }
+//
+//    @PostMapping(&quot;/films&quot;)
+//    public Film create(@RequestBody FilmInput data) {
+//        final var film = new Film();
+//        film.setTitle(data.getTitle());
+//        film.setLanguage(data.getLanguage());
+//        return filmRepository.save(film);
+//    }
+//
+//    @PutMapping(&quot;/films/{id}&quot;)
+//    public Film updateFilm(@PathVariable Short id, @RequestBody FilmInput data) {
+//        Film film = filmRepository.findById(id).get();
+//        film.setTitle(data.getTitle());
+//        film.setLanguage(data.getLanguage());
+//        return filmRepository.save(film);
+//    }
+//
+//    @DeleteMapping(&quot;/films/{id}&quot;)
+//    public void deleteFilm(@PathVariable Short id) {
+//        filmRepository.deleteById(id);
+//    }
+//
+//    @GetMapping(&quot;/films/{id}/cast&quot;)
+//    public List&lt;Actor&gt; getFilmCast(@PathVariable Short id) {
+//        Film film = filmRepository.findById(id).get();
+//        return film.getCast();
+//    }
+
+
+    @GetMapping(&quot;/films&quot;)
+    public List&lt;PartialFilmResponse&gt; getAllFilms() {
+<span class="nc" id="L58">        return filmService.getAllFilms();</span>
+    }
+
+    @GetMapping(&quot;/films/{id}&quot;)
+    public PartialFilmResponse findFilm(@PathVariable Short id) {
+<span class="fc" id="L63">        return filmService.getFilmById(id);</span>
+    }
+
+    @PostMapping(&quot;/films&quot;)
+    public Film create(@RequestBody FilmInput data) {
+<span class="nc" id="L68">        return filmService.createFilm(data);</span>
+    }
+
+    @PutMapping(&quot;/films/{id}&quot;)
+    public Film updateFilm(@PathVariable Short id, @RequestBody FilmInput data) {
+<span class="nc" id="L73">        return filmService.updateFilm(id, data);</span>
+    }
+
+    @DeleteMapping(&quot;/films/{id}&quot;)
+    public void deleteFilm(@PathVariable Short id) {
+<span class="nc" id="L78">        filmService.deleteFilm(id);</span>
+<span class="nc" id="L79">    }</span>
+
+    @GetMapping(&quot;/films/{id}/cast&quot;)
+    public List&lt;TestActorResponse&gt; getFilmCast(@PathVariable Short id) {
+<span class="nc" id="L83">        return filmService.getCastByFilmId(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

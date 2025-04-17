@@ -1,0 +1,17 @@
+com\example\demo\DemoApplication.class
+com\example\demo\entities\LanguageResponse.class
+com\example\demo\entities\TestActorResponse.class
+com\example\demo\entities\FilmInput.class
+com\example\demo\controllers\ActorController.class
+com\example\demo\services\ActorService.class
+com\example\demo\repositories\FilmRepository.class
+com\example\demo\entities\PartialFilmResponse.class
+com\example\demo\repositories\ActorRepository.class
+com\example\demo\controllers\FilmController.class
+com\example\demo\entities\Actor.class
+com\example\demo\services\FilmService.class
+com\example\demo\entities\Film.class
+com\example\demo\entities\ActorResponse.class
+com\example\demo\entities\Language.class
+com\example\demo\entities\ActorInput.class
+com\example\demo\repositories\LanguageRepository.class

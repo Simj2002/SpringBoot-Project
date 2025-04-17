@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActorController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.controllers</a> &gt; <span class="el_source">ActorController.java</span></div><h1>ActorController.java</h1><pre class="source lang-java linenums">package com.example.demo.controllers;
+
+import com.example.demo.entities.*;
+import com.example.demo.services.ActorService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RequiredArgsConstructor
+//@RequestMapping(&quot;/actors&quot;)
+@RestController
+public class ActorController {
+    @Autowired
+    private ActorService actorService;
+
+//    @GetMapping(&quot;/actors&quot;)
+//    public List&lt;Actor&gt; getAllActors() {
+//        return actorRepository.findAll();
+//    }
+
+//    @GetMapping(&quot;/actors&quot;)
+//    public List&lt;TestActorResponse&gt; getAllActors() {
+//        return actorRepository.findAll().stream().map(TestActorResponse::new).toList();
+//    }
+//
+//    @PostMapping(&quot;/actors&quot;)
+//    public Actor create(@Validated @RequestBody ActorInput data) {
+//        final var actor = new Actor();
+//        actor.setFirstName(data.getFirstName());
+//        actor.setLastName(data.getLastName());
+//        return actorRepository.save(actor);
+//    }
+//
+//    @GetMapping(&quot;/actors/{id}&quot;)
+//    public Actor findActor(@PathVariable Short id) {
+//        return actorRepository.findById(id).get();
+//    }
+//
+//    @PutMapping(&quot;/actors/{id}&quot;)
+//    public Actor updateActor(@PathVariable Short id, @RequestBody ActorInput data) {
+//        Actor actor = actorRepository.findById(id).get();
+//        actor.setFirstName(data.getFirstName());
+//        actor.setLastName(data.getLastName());
+//        return actorRepository.save(actor);
+//    }
+//
+//    @DeleteMapping(&quot;/actors/{id}&quot;)
+//    public void deleteActor(@PathVariable Short id) {
+//        actorRepository.deleteById(id);
+//    }
+//
+//    @GetMapping(&quot;/actors/{id}/film&quot;)
+//    public List&lt;Film&gt; getFilmCast(@PathVariable Short id) {
+//        Actor actor = actorRepository.findById(id).get();
+//        return actor.getFilms();
+//    }
+//
+////    @GetMapping(&quot;/actors&quot;)
+////    public List&lt;Actor&gt; listActorsByName(@RequestParam String name) {
+////        return actorRepository.findAllByFirstName(name);
+////    }
+//
+//    @GetMapping
+//    public List&lt;ActorResponse&gt; readAllActors() {
+//        return actorRepository.findAll()
+//            .stream()
+//            .map(ActorResponse::new)
+//            .toList();
+//    }
+//
+//    @GetMapping(&quot;/actors/film/{id}&quot;)
+//    public ActorResponse readActorById(@PathVariable Short id) {
+//        return actorRepository.findById(id)
+//            .map(ActorResponse::new)
+//            .orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.NOT_FOUND));
+//    }
+
+    @GetMapping(&quot;/actors&quot;)
+    public List&lt;TestActorResponse&gt; getAllActors() {
+<span class="nc" id="L83">        return actorService.getAllTestActors();</span>
+    }
+
+    @PostMapping(&quot;/actors&quot;)
+    public Actor create(@Validated @RequestBody ActorInput data) {
+<span class="nc" id="L88">        return actorService.createActor(data);</span>
+    }
+
+    @GetMapping(&quot;/actors/{id}&quot;)
+    public TestActorResponse findActor(@PathVariable Short id) {
+<span class="fc" id="L93">        Actor actor = actorService.getActorById(id);</span>
+<span class="fc" id="L94">        return new TestActorResponse(actor);</span>
+    }
+
+    @PutMapping(&quot;/actors/{id}&quot;)
+    public Actor updateActor(@PathVariable Short id, @RequestBody ActorInput data) {
+<span class="nc" id="L99">        return actorService.updateActor(id, data);</span>
+    }
+
+    @DeleteMapping(&quot;/actors/{id}&quot;)
+    public void deleteActor(@PathVariable Short id) {
+<span class="nc" id="L104">        actorService.deleteActor(id);</span>
+<span class="nc" id="L105">    }</span>
+
+    @GetMapping
+    public List&lt;ActorResponse&gt; readAllActors() {
+<span class="nc" id="L109">        return actorService.readAllActors();</span>
+    }
+
+    @GetMapping(&quot;/actors/film/{id}&quot;)
+    public ActorResponse readActorById(@PathVariable Short id) {
+<span class="nc" id="L114">        return actorService.readActorFilmsById(id);</span>
+    }
+
+    //http://localhost:8080/api/actors/firstname?name=pen
+    @GetMapping(&quot;/actors/firstname&quot;)
+    public List&lt;TestActorResponse&gt; getActorsByFirstName(@RequestParam String name) {
+<span class="nc" id="L120">        return actorService.getActorsByFirstName(name);</span>
+    }
+
+    //http://localhost:8080/api/actors/firstnamecase?name=pen
+    @GetMapping(&quot;/actors/firstnamecase&quot;)
+    public List&lt;TestActorResponse&gt; searchActorsByName(@RequestParam String name) {
+<span class="nc" id="L126">        return actorService.getActorsByFirstNameCase(name);</span>
+    }
+
+    //http://localhost:8080/api/actors/query?name=PENELOPE
+    @GetMapping(&quot;/actors/query&quot;)
+    public List&lt;TestActorResponse&gt; getActorsByQuery(@RequestParam String name) {
+<span class="nc" id="L132">        return actorService.getActorsByFirstNameWithQuery(name);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -1,0 +1,17 @@
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\controllers\ActorController.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\controllers\FilmController.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\DemoApplication.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\Actor.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\ActorInput.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\ActorResponse.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\Film.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\FilmInput.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\Language.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\LanguageResponse.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\PartialFilmResponse.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\entities\TestActorResponse.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\repositories\ActorRepository.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\repositories\FilmRepository.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\repositories\LanguageRepository.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\services\ActorService.java
+C:\Users\Sim\Documents\demo\src\main\java\com\example\demo\services\FilmService.java
