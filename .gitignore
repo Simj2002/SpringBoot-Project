@@ -30,3 +30,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore Chrome and ChromeDriver files/folders
+/src/test/resources/chromedriver/
+/src/test/resources/chrome-win64/
