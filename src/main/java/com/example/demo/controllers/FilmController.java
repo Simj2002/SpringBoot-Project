@@ -15,6 +15,43 @@ public class FilmController {
     private FilmService filmService;
     //private FilmRepository filmRepository;
 
+    //Call Service layer to retrieve all film information/responses
+    @GetMapping("/films")
+    public List<PartialFilmResponse> getAllFilms() {
+        return filmService.getAllFilms();
+    }
+
+    @GetMapping("/films/{id}")
+    public PartialFilmResponse findFilm(@PathVariable Short id) {
+        return filmService.getFilmById(id);
+    }
+
+    @PostMapping("/films")
+    public Film create(@RequestBody FilmInput data) {
+        return filmService.createFilm(data);
+    }
+
+    @PutMapping("/films/{id}")
+    public Film updateFilm(@PathVariable Short id, @RequestBody FilmInput data) {
+        return filmService.updateFilm(id, data);
+    }
+
+    @DeleteMapping("/films/{id}")
+    public void deleteFilm(@PathVariable Short id) {
+        filmService.deleteFilm(id);
+    }
+
+    @GetMapping("/films/{id}/cast")
+    public List<TestActorResponse> getFilmCast(@PathVariable Short id) {
+        return filmService.getCastByFilmId(id);
+    }
+}
+
+
+
+
+
+
 //    @GetMapping("/films")
 //    public List<Film> getAllFilms() {
 //        return filmRepository.findAll();
@@ -51,35 +88,3 @@ public class FilmController {
 //        Film film = filmRepository.findById(id).get();
 //        return film.getCast();
 //    }
-
-
-    @GetMapping("/films")
-    public List<PartialFilmResponse> getAllFilms() {
-        return filmService.getAllFilms();
-    }
-
-    @GetMapping("/films/{id}")
-    public PartialFilmResponse findFilm(@PathVariable Short id) {
-        return filmService.getFilmById(id);
-    }
-
-    @PostMapping("/films")
-    public Film create(@RequestBody FilmInput data) {
-        return filmService.createFilm(data);
-    }
-
-    @PutMapping("/films/{id}")
-    public Film updateFilm(@PathVariable Short id, @RequestBody FilmInput data) {
-        return filmService.updateFilm(id, data);
-    }
-
-    @DeleteMapping("/films/{id}")
-    public void deleteFilm(@PathVariable Short id) {
-        filmService.deleteFilm(id);
-    }
-
-    @GetMapping("/films/{id}/cast")
-    public List<TestActorResponse> getFilmCast(@PathVariable Short id) {
-        return filmService.getCastByFilmId(id);
-    }
-}

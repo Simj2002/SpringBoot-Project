@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import lombok.Getter;
 
+//Read-only DTO - transfers actor entity into a response object for users
+//Only necessary fields selected
 @Getter
 public class TestActorResponse {
     private final Short id;

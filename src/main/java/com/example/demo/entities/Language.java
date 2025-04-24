@@ -7,11 +7,13 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+//lombok annotations
 @Getter
 @Setter
 @Entity
 @Table(name = "language")
 public class Language {
+    //primary key for language table, with language name column
     @Id
     @Column(name = "language_id")
     private Byte id;

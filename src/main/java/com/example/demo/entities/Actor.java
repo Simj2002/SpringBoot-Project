@@ -1,16 +1,17 @@
 package com.example.demo.entities;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+//lombok annotations below
 @Getter
 @Setter
 @Entity
 @Table(name="actor")
 public class Actor {
+    //primary key for actor table, with firstName/lastName column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id")
@@ -20,6 +21,7 @@ public class Actor {
     @Column(name = "last_name")
     private String lastName;
 
+    //Define many-to-many relationship with film entity
     @ManyToMany
     @JoinTable(
             name = "film_actor",

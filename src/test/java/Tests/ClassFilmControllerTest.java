@@ -1,9 +1,7 @@
 package Tests;
 
-import com.example.demo.controllers.ActorController;
 import com.example.demo.controllers.FilmController;
 import com.example.demo.entities.*;
-import com.example.demo.services.ActorService;
 import com.example.demo.services.FilmService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,7 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class ClassFilmTest {
+public class ClassFilmControllerTest {
     @InjectMocks
     private FilmController filmController;
     @Mock
